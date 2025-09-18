@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, ShoppingBag, BookOpen, Menu } from "lucide-react";
+import { MapPin, Calendar, ShoppingBag, BookOpen, Menu, User, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <nav className="bg-card/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -31,9 +39,24 @@ const Navigation = () => {
             <a href="#culture" className="text-foreground hover:text-cultural transition-colors">
               Culture
             </a>
-            <Button variant="eco" size="sm">
-              Plan Trip
-            </Button>
+{user ? (
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-muted-foreground">
+                  Welcome, {user.user_metadata?.full_name || user.email}
+                </span>
+                <Button variant="outline" size="sm" onClick={handleSignOut}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <Link to="/auth">
+                <Button variant="eco" size="sm">
+                  <User className="h-4 w-4 mr-2" />
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu */}
