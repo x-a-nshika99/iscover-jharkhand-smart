@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, MapPin, Clock, Users, Star } from "lucide-react";
 import { useEvents } from "@/hooks/useEvents";
+import tribalDanceFestival from "@/assets/tribal-dance-festival.jpg";
 
 const EventCalendar = () => {
   const { events, loading, error } = useEvents();
@@ -84,7 +85,7 @@ const EventCalendar = () => {
               <Card key={event.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative overflow-hidden">
                   <img 
-                    src={event.image_url || "/src/assets/cultural-festival.jpg"} 
+                    src={event.image_url || tribalDanceFestival} 
                     alt={event.name}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />

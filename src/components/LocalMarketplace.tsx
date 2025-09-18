@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ShoppingBag, Star, Heart, Truck } from "lucide-react";
 import { useProducts } from "@/hooks/useProducts";
+import tribalPottery from "@/assets/tribal-pottery.jpg";
 
 const LocalMarketplace = () => {
   const { products, loading, error } = useProducts();
@@ -94,7 +95,7 @@ const LocalMarketplace = () => {
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative overflow-hidden">
                   <img 
-                    src={product.image_url || "/src/assets/handicrafts.jpg"} 
+                    src={product.image_url || tribalPottery} 
                     alt={product.name}
                     className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   />

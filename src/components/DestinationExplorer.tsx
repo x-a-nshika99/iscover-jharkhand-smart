@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { MapPin, Star, Clock, Users } from "lucide-react";
 import { useDestinations } from "@/hooks/useDestinations";
+import jharkhandWaterfall from "@/assets/jharkhand-waterfall.jpg";
 
 const DestinationExplorer = () => {
   const { destinations, loading, error } = useDestinations();
@@ -82,7 +83,7 @@ const DestinationExplorer = () => {
               <Card key={destination.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative overflow-hidden">
                   <img 
-                    src={destination.image_url || "/src/assets/eco-tourism.jpg"} 
+                    src={destination.image_url || jharkhandWaterfall} 
                     alt={destination.name}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
